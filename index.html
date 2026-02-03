@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Freshket: Peace of Mind Delivery</title>
     
-    <!-- Meta Tags สำหรับการแชร์ลง Social Media (Line, Facebook) -->
     <meta property="og:title" content="Freshket: Peace of Mind Delivery Game">
     <meta property="og:description" content="เกมเก็บคะแนนคัดสรรของสด ส่งความสบายใจให้ร้านอาหาร มาดูกันว่าคุณจะได้ฉายาอะไร!">
     <meta property="og:image" content="https://i.postimg.cc/gkVwzGf8/FRESHKET_LOGO-01_(1).png">
@@ -13,7 +12,6 @@
     <meta property="og:type" content="website">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- นำเข้าฟอนต์ Kanit จาก Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -66,7 +64,6 @@
     <canvas id="gameCanvas"></canvas>
 
     <div id="ui-layer" class="absolute inset-0 pointer-events-none p-6 flex flex-col justify-between">
-        <!-- Header: Score & Time -->
         <div class="flex justify-between items-start">
             <div id="scoreBox" class="glass-panel p-3 px-6 rounded-2xl shadow-lg">
                 <p class="text-[10px] uppercase tracking-[0.1em] text-[#008065] font-bold opacity-70 text-center">Score</p>
@@ -83,7 +80,6 @@
             </div>
         </div>
 
-        <!-- Start Screen -->
         <div id="start-screen" class="absolute inset-0 flex flex-col items-center justify-center bg-[#008065]/95 pointer-events-auto p-4 md:p-8 text-center overflow-y-auto">
             <div class="bg-white p-4 rounded-3xl mb-5 shadow-2xl floating shrink-0">
                  <img src="https://i.postimg.cc/gkVwzGf8/FRESHKET_LOGO-01_(1).png" alt="Freshket Logo" class="h-12 md:h-16 w-auto object-contain">
@@ -92,52 +88,48 @@
             <h1 class="text-xl md:text-3xl font-black text-white mb-2 tracking-tight uppercase leading-tight shrink-0">Your Trusted Solution<br>for Food Supplies</h1>
             <p class="text-white/70 mb-8 text-[11px] uppercase tracking-[0.25em] font-medium shrink-0">คัดสรรของสด ส่งความสบายใจให้ร้านอาหาร</p>
             
-            <!-- Cards Container -->
             <div class="flex flex-col md:flex-row gap-5 w-full max-w-5xl mb-10 items-stretch">
                 
-                <!-- Card 1: Scoring Rules -->
                 <div class="bg-white rounded-[32px] p-6 shadow-2xl flex-1 border-t-8 border-[#FF6600] flex flex-col">
-                    <h3 class="text-[#008065] font-black text-sm mb-5 uppercase tracking-widest border-b-2 border-gray-100 pb-2 flex items-center justify-center gap-2">
+                    <h3 class="text-[#008065] font-black text-xl mb-5 uppercase tracking-widest border-b-2 border-gray-100 pb-2 flex items-center justify-center gap-2">
                         <span>📦</span> กติกาการเก็บคะแนน
                     </h3>
                     <div class="grid grid-cols-3 gap-3 flex-1">
                         <div class="bg-gray-50 p-3 rounded-2xl border border-gray-100 flex flex-col justify-center">
-                            <span class="text-2xl block mb-2">🥬🥩</span>
-                            <p class="text-[9px] text-gray-400 font-bold uppercase mb-1">วัตถุดิบสด</p>
-                            <p class="text-[#008065] font-black text-base">+10</p>
+                            <span class="text-3xl block mb-2">🥬🥩</span>
+                            <p class="text-[14px] text-gray-400 font-bold uppercase mb-1">วัตถุดิบสด</p>
+                            <p class="text-[#008065] font-black text-2xl">+10</p>
                         </div>
                         <div class="bg-yellow-50 p-3 rounded-2xl border border-yellow-100 flex flex-col justify-center">
-                            <span class="text-2xl block mb-2">⭐</span>
-                            <p class="text-[9px] text-yellow-600 font-bold uppercase mb-1">ผักยักษ์</p>
-                            <p class="text-yellow-500 font-black text-base">+50</p>
+                            <span class="text-3xl block mb-2">⭐</span>
+                            <p class="text-[14px] text-yellow-600 font-bold uppercase mb-1">ผักยักษ์</p>
+                            <p class="text-yellow-500 font-black text-2xl">+50</p>
                         </div>
                         <div class="bg-red-50 p-3 rounded-2xl border border-red-100 flex flex-col justify-center">
-                            <span class="text-2xl block mb-2">💩🐛</span>
-                            <p class="text-[9px] text-red-400 font-bold uppercase mb-1">ห้ามเก็บ!</p>
-                            <p class="text-red-500 font-black text-base">-20</p>
+                            <span class="text-3xl block mb-2">💩🐛</span>
+                            <p class="text-[14px] text-red-400 font-bold uppercase mb-1">ห้ามเก็บ!</p>
+                            <p class="text-red-500 font-black text-2xl">-20</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2: Rank Benchmarks -->
                 <div class="bg-white rounded-[32px] p-6 shadow-2xl flex-1 border-t-8 border-[#F5CE3E] flex flex-col">
-                    <h3 class="text-[#008065] font-black text-sm mb-5 uppercase tracking-widest border-b-2 border-gray-100 pb-2 flex items-center justify-center gap-2">
+                    <h3 class="text-[#008065] font-black text-xl mb-5 uppercase tracking-widest border-b-2 border-gray-100 pb-2 flex items-center justify-center gap-2">
                         <span>🏆</span> เกณฑ์คะแนนฉายา
                     </h3>
-                    <div class="space-y-2.5 flex-1">
-                        <div class="flex justify-between items-center bg-gray-50 p-2.5 px-4 rounded-xl text-[12px] border border-gray-100">
+                    <div class="space-y-3 flex-1"> <div class="flex justify-between items-center bg-gray-50 p-3 px-4 rounded-xl text-base border border-gray-100">
                             <span class="font-bold text-gray-600">🐣 มือใหม่หัดสั่ง</span>
                             <span class="font-black text-[#008065]">0 - 150</span>
                         </div>
-                        <div class="flex justify-between items-center bg-green-50 p-2.5 px-4 rounded-xl text-[12px] border border-green-100">
+                        <div class="flex justify-between items-center bg-green-50 p-3 px-4 rounded-xl text-base border border-green-100">
                             <span class="font-bold text-[#008065]">🥦 เชฟมือโปร</span>
                             <span class="font-black text-[#008065]">151 - 350</span>
                         </div>
-                        <div class="flex justify-between items-center bg-orange-50 p-2.5 px-4 rounded-xl text-[12px] border border-orange-100">
+                        <div class="flex justify-between items-center bg-orange-50 p-3 px-4 rounded-xl text-base border border-orange-100">
                             <span class="font-bold text-[#FF6600]">✨ VIBE ARCHITECT</span>
                             <span class="font-black text-[#FF6600]">351 - 550</span>
                         </div>
-                        <div class="flex justify-between items-center bg-yellow-50 p-2.5 px-4 rounded-xl text-[12px] border border-yellow-200">
+                        <div class="flex justify-between items-center bg-yellow-50 p-3 px-4 rounded-xl text-base border border-yellow-200">
                             <span class="font-bold text-yellow-700">🥇 LEGENDARY PARTNER</span>
                             <span class="font-black text-yellow-700">551+</span>
                         </div>
@@ -155,7 +147,6 @@
             </div>
         </div>
 
-        <!-- Game Over Screen -->
         <div id="game-over" class="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-md pointer-events-auto hidden">
             <div id="over-card" class="glass-panel p-10 rounded-[40px] text-center w-[90%] max-w-md shadow-2xl border-4 border-[#F5CE3E]">
                 <div id="game-over-icon" class="text-5xl mb-4">🏆</div>
